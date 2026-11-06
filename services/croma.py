@@ -37,3 +37,18 @@ class CromaClient:
         response.raise_for_status()
 
         return response.json()
+        
+    def buscar_paradero(self, texto):
+
+    response = requests.post(
+        f"{self.base_url}/co/transmilenio/stops-search/v1",
+        headers=self.headers,
+        json={
+            "query": texto
+        },
+        timeout=30
+    )
+
+    response.raise_for_status()
+
+    return response.json()
