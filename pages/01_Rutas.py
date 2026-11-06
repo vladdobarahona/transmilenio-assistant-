@@ -1,7 +1,6 @@
 import streamlit as st
 from services.croma import CromaClient
 
-
 st.title("Prueba de conexión Croma")
 
 client = CromaClient(
@@ -20,7 +19,8 @@ if st.button("Probar conexión"):
     except Exception as e:
 
         st.error(str(e))
-        
+
+st.divider()
 
 st.title("Consulta de rutas")
 
