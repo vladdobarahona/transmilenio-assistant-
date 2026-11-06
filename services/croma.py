@@ -1,7 +1,15 @@
 import requests
 import pandas as pd
 from typing import Dict, List, Optional
+import streamlit as st
 
+API_KEY = st.secrets["CROMA_API_KEY"]
+
+if API_KEY == "PENDIENTE_CONFIGURAR":
+    st.error(
+        "Configure CROMA_API_KEY antes de utilizar la aplicación."
+    )
+    st.stop()
 
 class CromaClient:
 
