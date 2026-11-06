@@ -18,11 +18,27 @@ if st.button("Consultar vehículos"):
 
         datos = client.obtener_vehiculos(ruta)
 
-        st.success(
-            f"Vehículos encontrados: {len(datos.get('vehicles', []))}"
+        vehiculos = datos.get("vehicles", [])
+
+        st.metric(
+            "Vehículos activos",
+            len(vehiculos)
         )
 
-        st.json(datos)
+        if vehiculos:
+
+            import pandas as pd
+
+            df = pd.DataFrame(vehiculos)
+
+            st.dataframe(
+                df,
+                use_container_width=True
+            )
+
+        else:
+
+            st.info("No se encontraron vehículos.")
 
     except Exception as e:
 
