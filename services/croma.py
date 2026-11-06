@@ -14,6 +14,18 @@ if API_KEY == "PENDIENTE_CONFIGURAR":
     st.warning(
         "CROMA_API_KEY aún no configurada. Modo demostración."
     )
+def buscar_ruta(self, codigo):
+
+    response = requests.post(
+        f"{self.base_url}/co/transmilenio/routes-search/v1",
+        headers=self.headers,
+        json={"query": codigo},
+        timeout=30
+    )
+
+    response.raise_for_status()
+
+    return response.json()
     
 class CromaClient:
 
