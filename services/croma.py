@@ -5,12 +5,16 @@ import streamlit as st
 
 API_KEY = st.secrets["CROMA_API_KEY"]
 
-if API_KEY == "PENDIENTE_CONFIGURAR":
-    st.error(
-        "Configure CROMA_API_KEY antes de utilizar la aplicación."
-    )
+#if API_KEY == "PENDIENTE_CONFIGURAR":
+#    st.error(
+#        "Configure CROMA_API_KEY antes de utilizar la aplicación."
+#    )
     st.stop()
-
+if API_KEY == "PENDIENTE_CONFIGURAR":
+    st.warning(
+        "CROMA_API_KEY aún no configurada. Modo demostración."
+    )
+    
 class CromaClient:
 
     def __init__(self, api_key: str):
