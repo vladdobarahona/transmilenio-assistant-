@@ -17,7 +17,7 @@ if st.button("Consultar vehículos"):
     try:
 
         datos = client.obtener_vehiculos(ruta)
-
+        st.write(datos)
         vehiculos = datos.get("vehicles", [])
 
         st.metric(
